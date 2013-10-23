@@ -1,0 +1,300 @@
+-- phpMyAdmin SQL Dump
+-- version 2.11.1
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: May 05, 2008 at 07:48 PM
+-- Server version: 5.0.45
+-- PHP Version: 5.2.5
+
+--
+-- Database: `bmi`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `classes`
+--
+
+CREATE TABLE IF NOT EXISTS `classes` (
+  `classid` int(11) NOT NULL auto_increment,
+  `schoolid` int(11) NOT NULL,
+  `grade` int(11) NOT NULL,
+  `teachername` varchar(50) NOT NULL default '''''',
+  PRIMARY KEY  (`classid`),
+  UNIQUE KEY `school_grade_teacher_unique` (`schoolid`,`grade`,`teachername`)
+) TYPE=InnoDB  AUTO_INCREMENT=31 ;
+
+--
+-- Dumping data for table `classes`
+--
+
+INSERT INTO `classes` (`classid`, `schoolid`, `grade`, `teachername`) VALUES
+(22, 2, 2, 'SCHMIDT, LISTY'),
+(23, 2, 3, 'SCHMIDT, LISTY'),
+(24, 2, 4, 'YOUNG, RONDA'),
+(25, 2, 5, 'YOUNG, RONDA'),
+(20, 4, 0, 'TUTTLE, BARBARA'),
+(21, 4, 1, 'TUTTLE, BARBARA'),
+(27, 4, 2, 'SCHMIDT, LISTY'),
+(28, 4, 3, 'SCHMIDT, LISTY'),
+(29, 4, 4, 'YOUNG, RONDA'),
+(30, 4, 5, 'YOUNG, RONDA');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `county`
+--
+
+CREATE TABLE IF NOT EXISTS `county` (
+  `countyID` int(4) NOT NULL default '0',
+  `county` varchar(50) default NULL,
+  `state` varchar(2) default NULL,
+  PRIMARY KEY  (`countyID`)
+) TYPE=InnoDB;
+
+--
+-- Dumping data for table `county`
+--
+
+INSERT INTO `county` (`countyID`, `county`, `state`) VALUES
+(1, 'Douglas County', 'NE'),
+(2, 'Lancaster County', 'NE'),
+(3, 'Gage County', 'NE'),
+(4, 'Custer County', 'NE'),
+(5, 'Dodge County', 'NE'),
+(6, 'Saunders County', 'NE'),
+(7, 'Madison County', 'NE'),
+(8, 'Hall County', 'NE'),
+(9, 'Buffalo County', 'NE'),
+(10, 'Platte County', 'NE'),
+(11, 'Otoe County', 'NE'),
+(12, 'Knox County', 'NE'),
+(13, 'Cedar County', 'NE'),
+(14, 'Adams County', 'NE'),
+(15, 'Lincoln County', 'NE'),
+(16, 'Seward County', 'NE'),
+(17, 'York County', 'NE'),
+(18, 'Dawson County', 'NE'),
+(19, 'Richardson County', 'NE'),
+(20, 'Cass County', 'NE'),
+(21, 'Scotts Bluff County', 'NE'),
+(22, 'Saline County', 'NE'),
+(23, 'Boone County', 'NE'),
+(24, 'Cuming County', 'NE'),
+(25, 'Butler County', 'NE'),
+(26, 'Antelope County', 'NE'),
+(27, 'Wayne County', 'NE'),
+(28, 'Hamilton County', 'NE'),
+(29, 'Washington County', 'NE'),
+(30, 'Clay County', 'NE'),
+(31, 'Burt County', 'NE'),
+(32, 'Thayer County', 'NE'),
+(33, 'Jefferson County', 'NE'),
+(34, 'Fillmore County', 'NE'),
+(35, 'Dixon County', 'NE'),
+(36, 'Holt County', 'NE'),
+(37, 'Phelps County', 'NE'),
+(38, 'Furnas County', 'NE'),
+(39, 'Cheyenne County', 'NE'),
+(40, 'Pierce County', 'NE'),
+(41, 'Polk County', 'NE'),
+(42, 'Nuckolls County', 'NE'),
+(43, 'Colfax County', 'NE'),
+(44, 'Nemaha County', 'NE'),
+(45, 'Webster County', 'NE'),
+(46, 'Merrick County', 'NE'),
+(47, 'Valley County', 'NE'),
+(48, 'Red Willow County', 'NE'),
+(49, 'Howard County', 'NE'),
+(50, 'Franklin County', 'NE'),
+(51, 'Harlan County', 'NE'),
+(52, 'Kearney County', 'NE'),
+(53, 'Stanton County', 'NE'),
+(54, 'Pawnee County', 'NE'),
+(55, 'Thurston County', 'NE'),
+(56, 'Sherman County', 'NE'),
+(57, 'Johnson County', 'NE'),
+(58, 'Nance County', 'NE'),
+(59, 'Sarpy County', 'NE'),
+(60, 'Frontier County', 'NE'),
+(61, 'Sheridan County', 'NE'),
+(62, 'Greeley County', 'NE'),
+(63, 'Boyd County', 'NE'),
+(64, 'Morrill County', 'NE'),
+(65, 'Box Butte County', 'NE'),
+(66, 'Cherry County', 'NE'),
+(67, 'Hitchcock County', 'NE'),
+(68, 'Keith County', 'NE'),
+(69, 'Dawes County', 'NE'),
+(70, 'Dakota County', 'NE'),
+(71, 'Kimball County', 'NE'),
+(72, 'Chase County', 'NE'),
+(73, 'Gosper County', 'NE'),
+(74, 'Perkins County', 'NE'),
+(75, 'Brown County', 'NE'),
+(76, 'Dundy County', 'NE'),
+(77, 'Garden County', 'NE'),
+(78, 'Deuel County', 'NE'),
+(79, 'Hayes County', 'NE'),
+(80, 'Sioux County', 'NE'),
+(81, 'Rock County', 'NE'),
+(82, 'Keya Paha County', 'NE'),
+(83, 'Garfield County', 'NE'),
+(84, 'Wheeler County', 'NE'),
+(85, 'Banner County', 'NE'),
+(86, 'Blaine County', 'NE'),
+(87, 'Logan County', 'NE'),
+(88, 'Loup County', 'NE'),
+(89, 'Thomas County', 'NE'),
+(90, 'McPherson County', 'NE'),
+(91, 'Arthur County', 'NE'),
+(92, 'Grant County', 'NE'),
+(93, 'Hooker County', 'NE');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `school`
+--
+
+CREATE TABLE IF NOT EXISTS `school` (
+  `schoolID` int(11) NOT NULL auto_increment,
+  `schoolName` varchar(50) default NULL,
+  `countyID` int(3) default NULL,
+  `phoneNumber` varchar(14) default NULL,
+  PRIMARY KEY  (`schoolID`)
+) TYPE=InnoDB  AUTO_INCREMENT=9 ;
+
+--
+-- Dumping data for table `school`
+--
+
+INSERT INTO `school` (`schoolID`, `schoolName`, `countyID`, `phoneNumber`) VALUES
+(2, 'Test School # 2', 9, '(308) 425-1234'),
+(4, 'Franklin Public', 50, '3082342343');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `student`
+--
+
+CREATE TABLE IF NOT EXISTS `student` (
+  `studentID` int(11) NOT NULL auto_increment,
+  `schoolID` int(11) default NULL,
+  `dateofweight` date default NULL,
+  `DOB` date default NULL,
+  `height` float default NULL,
+  `weight` float default NULL,
+  `gender` char(2) default NULL,
+  `name` varchar(100) default NULL,
+  `classid` int(11) NOT NULL default '-1',
+  PRIMARY KEY  (`studentID`)
+) TYPE=InnoDB  AUTO_INCREMENT=479 ;
+
+--
+-- Dumping data for table `student`
+--
+
+INSERT INTO `student` (`studentID`, `schoolID`, `dateofweight`, `DOB`, `height`, `weight`, `gender`, `name`, `classid`) VALUES
+(395, NULL, '1969-12-31', '2000-09-28', 0, 0, 'M', 'Adamson, Hunter Vincent', 21),
+(396, NULL, '1969-12-31', '2001-07-17', 0, 0, 'M', 'Clark, Anthony', 21),
+(397, NULL, '1969-12-31', '2001-07-15', 0, 0, 'F', 'Jelinek, Kaela Dawn', 21),
+(398, NULL, '1969-12-31', '2001-03-07', 0, 0, 'F', 'Jenkins, Miranda Renee', 21),
+(399, NULL, '1969-12-31', '2001-03-04', 0, 0, 'F', 'Johnson, Hannah Andrea', 21),
+(400, NULL, '1969-12-31', '2000-08-23', 0, 0, 'M', 'Jones, Thredrice Ervin', 21),
+(401, NULL, '1969-12-31', '2000-11-25', 0, 0, 'M', 'Landanger, Nicolas Lee', 21),
+(402, NULL, '1969-12-31', '2001-02-09', 0, 0, 'M', 'Poland, Joel C', 21),
+(403, NULL, '1969-12-31', '2000-07-12', 0, 0, 'F', 'Waugh, Sierra Melissa', 21),
+(404, NULL, '1969-12-31', '1999-07-29', 0, 0, 'M', 'Clark, Jason Christopher', 22),
+(405, NULL, '1969-12-31', '1999-12-05', 0, 0, 'F', 'Houtz, Danielle Nichole', 22),
+(406, NULL, '1969-12-31', '1999-12-06', 0, 0, 'M', 'Mais, Riston Lamont', 22),
+(407, NULL, '1969-12-31', '1999-08-07', 0, 0, 'F', 'Melroy, Macquel Raeanne', 22),
+(408, NULL, '1969-12-31', '1998-06-30', 0, 0, 'F', 'Broweleit, Jolynn Taylor', 23),
+(409, NULL, '1969-12-31', '1998-08-09', 0, 0, 'F', 'Hartman, Crystal Ann', 23),
+(410, NULL, '1969-12-31', '1999-07-08', 0, 0, 'F', 'Jelinek, Kara Elizabeth', 23),
+(411, NULL, '1969-12-31', '1998-06-02', 0, 0, 'M', 'Jenkins, Collin Joseph', 23),
+(412, NULL, '1969-12-31', '1999-03-18', 0, 0, 'F', 'Jones, Tayla Evangelina', 23),
+(413, NULL, '1969-12-31', '1998-09-19', 0, 0, 'M', 'Landanger, Dylan Santana', 23),
+(414, NULL, '1969-12-31', '1998-10-22', 0, 0, 'F', 'Poland, Claire E', 23),
+(415, NULL, '1969-12-31', '1999-02-06', 0, 0, 'F', 'Shiers, Sierra Amber', 23),
+(416, NULL, '1969-12-31', '1997-12-30', 0, 0, 'F', 'Beatty, Madison Mae', 24),
+(417, NULL, '1969-12-31', '1998-07-07', 0, 0, 'F', 'Clark, Sarah Renee', 24),
+(418, NULL, '1969-12-31', '1998-04-08', 0, 0, 'M', 'Geist, Isaac Matthew', 24),
+(419, NULL, '1969-12-31', '1998-02-03', 0, 0, 'F', 'Humphrey, Maycee Marie', 24),
+(420, NULL, '1969-12-31', '1996-11-09', 0, 0, 'M', 'Jelinek, Morgen Kyle', 24),
+(421, NULL, '1969-12-31', '1997-08-18', 0, 0, 'F', 'Messbarger, Michelle Liam', 24),
+(422, NULL, '1969-12-31', '1997-10-02', 0, 0, 'M', 'Waugh, Caleb James', 24),
+(423, NULL, '1969-12-31', '1996-07-24', 0, 0, 'M', 'Adamson, Josiah David', 25),
+(424, NULL, '1969-12-31', '1997-06-18', 0, 0, 'F', 'Dupree, Sara Ellen', 25),
+(425, NULL, '1969-12-31', '1997-05-07', 0, 0, 'M', 'Jones, Taylon', 25),
+(426, NULL, '1969-12-31', '1997-02-13', 0, 0, 'F', 'Putnam, Brooke Renee', 25),
+(427, NULL, '1969-12-31', '1997-07-15', 0, 0, 'M', 'Rohla, Jacob William', 25),
+(428, NULL, '1969-12-31', '1997-02-20', 0, 0, 'M', 'Williams, Grant Raymond', 25),
+(441, NULL, '1969-12-31', '2000-09-28', 0, 0, 'M', 'Adamson, Hunter Vincent', 21),
+(442, NULL, '1969-12-31', '2001-07-17', 0, 0, 'M', 'Clark, Anthony', 21),
+(443, NULL, '1969-12-31', '2001-07-15', 0, 0, 'F', 'Jelinek, Kaela Dawn', 21),
+(444, NULL, '1969-12-31', '2001-03-07', 0, 0, 'F', 'Jenkins, Miranda Renee', 21),
+(445, NULL, '1969-12-31', '2001-03-04', 0, 0, 'F', 'Johnson, Hannah Andrea', 21),
+(446, NULL, '1969-12-31', '2000-08-23', 0, 0, 'M', 'Jones, Thredrice Ervin', 21),
+(447, NULL, '1969-12-31', '2000-11-25', 0, 0, 'M', 'Landanger, Nicolas Lee', 21),
+(448, NULL, '1969-12-31', '2001-02-09', 0, 0, 'M', 'Poland, Joel C', 21),
+(449, NULL, '1969-12-31', '2000-07-12', 0, 0, 'F', 'Waugh, Sierra Melissa', 21),
+(450, NULL, '1969-12-31', '1999-07-29', 0, 0, 'M', 'Clark, Jason Christopher', 27),
+(451, NULL, '1969-12-31', '1999-12-05', 0, 0, 'F', 'Houtz, Danielle Nichole', 27),
+(452, NULL, '1969-12-31', '1999-12-06', 0, 0, 'M', 'Mais, Riston Lamont', 27),
+(453, NULL, '1969-12-31', '1999-08-07', 0, 0, 'F', 'Melroy, Macquel Raeanne', 27),
+(454, NULL, '1969-12-31', '1998-06-30', 0, 0, 'F', 'Broweleit, Jolynn Taylor', 28),
+(455, NULL, '1969-12-31', '1998-08-09', 0, 0, 'F', 'Hartman, Crystal Ann', 28),
+(456, NULL, '1969-12-31', '1999-07-08', 0, 0, 'F', 'Jelinek, Kara Elizabeth', 28),
+(457, NULL, '1969-12-31', '1998-06-02', 0, 0, 'M', 'Jenkins, Collin Joseph', 28),
+(458, NULL, '1969-12-31', '1999-03-18', 0, 0, 'F', 'Jones, Tayla Evangelina', 28),
+(459, NULL, '1969-12-31', '1998-09-19', 0, 0, 'M', 'Landanger, Dylan Santana', 28),
+(460, NULL, '1969-12-31', '1998-10-22', 0, 0, 'F', 'Poland, Claire E', 28),
+(461, NULL, '1969-12-31', '1999-02-06', 0, 0, 'F', 'Shiers, Sierra Amber', 28),
+(462, NULL, '1969-12-31', '1997-12-30', 0, 0, 'F', 'Beatty, Madison Mae', 29),
+(463, NULL, '1969-12-31', '1998-07-07', 0, 0, 'F', 'Clark, Sarah Renee', 29),
+(464, NULL, '1969-12-31', '1998-04-08', 0, 0, 'M', 'Geist, Isaac Matthew', 29),
+(465, NULL, '1969-12-31', '1998-02-03', 0, 0, 'F', 'Humphrey, Maycee Marie', 29),
+(466, NULL, '1969-12-31', '1996-11-09', 0, 0, 'M', 'Jelinek, Morgen Kyle', 29),
+(467, NULL, '1969-12-31', '1997-08-18', 0, 0, 'F', 'Messbarger, Michelle Liam', 29),
+(468, NULL, '1969-12-31', '1997-10-02', 0, 0, 'M', 'Waugh, Caleb James', 29),
+(469, NULL, '1969-12-31', '1996-07-24', 0, 0, 'M', 'Adamson, Josiah David', 30),
+(470, NULL, '1969-12-31', '1997-06-18', 0, 0, 'F', 'Dupree, Sara Ellen', 30),
+(471, NULL, '1969-12-31', '1997-05-07', 0, 0, 'M', 'Jones, Taylon', 30),
+(472, NULL, '1969-12-31', '1997-02-13', 0, 0, 'F', 'Putnam, Brooke Renee', 30),
+(473, NULL, '1969-12-31', '1997-07-15', 0, 0, 'M', 'Rohla, Jacob William', 30),
+(474, NULL, '1969-12-31', '1997-02-20', 0, 0, 'M', 'Williams, Grant Raymond', 30),
+(475, NULL, '2001-01-01', '2002-05-10', 40, 40, 'M', 'Broweleit, Brock Emery Joel', 20),
+(476, NULL, '2001-01-01', '2002-05-10', 40, 50, 'F', 'Broweleit, Taralyn Morgan', 20),
+(477, NULL, '2001-01-01', '2001-07-14', 40, 60, 'M', 'Melroy, Terrell', 20),
+(478, NULL, '2001-01-01', '2001-08-14', 40, 70, 'M', 'Shiers, Layne Mitchell', 20);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE IF NOT EXISTS `user` (
+  `userID` varchar(50) NOT NULL,
+  `schoolID` int(11) default NULL,
+  `password` char(32) default NULL,
+  `firstName` varchar(50) default NULL,
+  `lastName` varchar(50) default NULL,
+  `permissions` int(1) NOT NULL,
+  `key` int(11) NOT NULL default '0',
+  PRIMARY KEY  (`userID`)
+) TYPE=InnoDB;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`userID`, `schoolID`, `password`, `firstName`, `lastName`, `permissions`, `key`) VALUES
+('franklin', 4, '5f4dcc3b5aa765d61d8327deb882cf99', 'Franklin', 'User', 1, 140042812),
+('matt', -1, '8661af46342819c9431fa29a57bfcb11', 'Matt', 'Admin', 2, 40317974),
+('new', 4, '22af645d1859cb5ca6da0c484f1f37ea', 'new', 'new', 0, 1678885828);
